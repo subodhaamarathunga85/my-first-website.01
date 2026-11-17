@@ -1,0 +1,1118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10251e">
+<title>Sri Lanka Signal Corps | Holiday Bungalows</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green:#10251e;
+  --green2:#1d4032;
+  --gold:#d6ad62;
+  --cream:#f6f5ef;
+  --white:#fff;
+  --muted:#778078;
+  --red:#c94c45;
+  --border:#e5e8e1;
+}
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:#25342d;
+}
+button,input,select,textarea {font:inherit}
+button {cursor:pointer}
+header {
+  background:var(--green);
+  color:white;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.brand {display:flex;align-items:center;gap:12px}
+.brand-icon {
+  width:45px;height:45px;border:1px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;
+  color:var(--gold);font-size:22px;
+}
+.brand h2 {font-size:16px;margin:0}
+.brand small {color:#c4c9c2;font-size:11px}
+nav {display:flex;gap:20px;align-items:center}
+nav a {color:white;text-decoration:none;font-size:13px}
+nav button {
+  background:var(--gold);color:var(--green);
+  border:0;padding:11px 17px;border-radius:6px;font-weight:700;
+}
+.hero {
+  min-height:440px;
+  background:linear-gradient(90deg,rgba(8,28,21,.92),rgba(8,28,21,.4)),
+  url('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1800&q=85') center/cover;
+  display:flex;align-items:center;padding:65px 8%;
+  color:white;
+}
+.hero-content {max-width:700px}
+.eyebrow {color:var(--gold);letter-spacing:3px;font-size:12px;font-weight:700}
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,6vw,65px);
+  line-height:1.1;margin:18px 0;
+}
+.hero p {color:#e1e5df;line-height:1.8;max-width:570px}
+.gold-button {
+  display:inline-block;background:var(--gold);color:var(--green);
+  padding:14px 24px;border-radius:5px;border:0;
+  font-weight:800;text-decoration:none;margin-top:15px;
+}
+.container {width:min(1180px,90%);margin:auto}
+.section {padding:65px 0}
+.section-heading {margin-bottom:28px}
+.section-heading h2 {
+  font-family:'Playfair Display',serif;
+  font-size:34px;margin:8px 0;color:var(--green);
+}
+.section-heading p {color:var(--muted);line-height:1.7}
+.search-panel {
+  background:white;padding:22px;border-radius:12px;
+  box-shadow:0 8px 35px #10251e0c;
+  display:grid;grid-template-columns:1fr 1fr 1fr auto;
+  gap:14px;margin-bottom:30px;
+}
+.field label {
+  display:block;font-size:11px;font-weight:800;
+  color:#657269;margin-bottom:8px;text-transform:uppercase;
+  letter-spacing:.7px;
+}
+.field input,.field select,.field textarea {
+  width:100%;padding:12px;border:1px solid var(--border);
+  border-radius:6px;background:white;outline:none;
+}
+.field input:focus,.field select:focus,.field textarea:focus {
+  border-color:var(--gold);
+}
+.search-button {
+  background:var(--green);color:white;border:0;
+  border-radius:6px;padding:12px 22px;font-weight:700;
+  align-self:end;
+}
+.bungalow-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+}
+.bungalow-card {
+  background:white;border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);transition:.2s;
+}
+.bungalow-card:hover {transform:translateY(-4px);box-shadow:0 12px 30px #10251e14}
+.card-image {
+  height:190px;background:linear-gradient(135deg,#254a38,#82947a);
+  position:relative;display:flex;align-items:end;padding:18px;
+  background-size:cover;background-position:center;
+}
+.card-image:after {
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.55));
+}
+.card-image span {
+  z-index:1;color:white;font-weight:800;font-size:12px;
+  letter-spacing:1px;
+}
+.card-body {padding:20px}
+.card-body h3 {
+  font-family:'Playfair Display',serif;font-size:22px;
+  color:var(--green);margin:0 0 6px;
+}
+.location {font-size:13px;color:var(--muted);margin-bottom:14px}
+.card-info {display:flex;gap:15px;flex-wrap:wrap;font-size:12px;color:#637066}
+.card-info span {display:flex;gap:5px;align-items:center}
+.price-line {
+  border-top:1px solid var(--border);margin-top:17px;
+  padding-top:15px;display:flex;justify-content:space-between;
+  align-items:center;
+}
+.price-line strong {color:var(--green);font-size:18px}
+.price-line small {color:var(--muted);font-size:11px}
+.card-button {
+  background:var(--green);color:white;border:0;
+  padding:10px 15px;border-radius:5px;font-weight:700;
+}
+.status {
+  display:inline-block;padding:6px 10px;border-radius:20px;
+  font-size:11px;font-weight:800;margin-bottom:12px;
+}
+.available {background:#e3f3e7;color:#24733b}
+.booked {background:#fae4e1;color:#a83b35}
+.notice {
+  background:#fff8e8;border-left:4px solid var(--gold);
+  padding:15px 18px;font-size:13px;line-height:1.7;
+  margin-top:25px;border-radius:4px;
+}
+footer {background:var(--green);color:white;padding:40px 6%;margin-top:40px}
+footer p {color:#c4c9c2;font-size:13px;line-height:1.8}
+footer a {color:var(--gold)}
+.hidden {display:none!important}
+.modal {
+  position:fixed;inset:0;background:#0009;z-index:10;
+  display:grid;place-items:center;padding:15px;
+}
+.modal-box {
+  background:white;border-radius:12px;padding:28px;
+  width:min(500px,100%);max-height:90vh;overflow:auto;
+}
+.modal-box h2 {font-family:'Playfair Display',serif;color:var(--green)}
+.close {float:right;border:0;background:#eee;border-radius:50%;width:32px;height:32px}
+.form-grid {display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.full {grid-column:1/-1}
+.form-actions {display:flex;gap:10px;margin-top:18px}
+.primary,.secondary,.danger {
+  border:0;padding:12px 18px;border-radius:5px;font-weight:700;
+}
+.primary {background:var(--green);color:white}
+.secondary {background:#e8eee8;color:var(--green)}
+.danger {background:#f9e6e3;color:#a83b35}
+.admin-area {padding:45px 0;min-height:70vh}
+.admin-header {
+  background:var(--green);color:white;padding:25px;
+  border-radius:10px;margin-bottom:25px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.admin-header h2 {margin:0;font-family:'Playfair Display',serif}
+.admin-tabs {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.admin-tabs button {
+  border:1px solid var(--border);background:white;
+  padding:11px 16px;border-radius:6px;font-weight:700;
+}
+.admin-tabs button.active {background:var(--green);color:white}
+.admin-panel {
+  background:white;padding:22px;border-radius:10px;
+  border:1px solid var(--border);margin-bottom:20px;
+}
+.admin-panel h3 {margin-top:0;color:var(--green)}
+.data-table {width:100%;border-collapse:collapse;font-size:13px}
+.data-table th,.data-table td {
+  text-align:left;padding:12px;border-bottom:1px solid var(--border);
+}
+.data-table th {background:#f5f6f2;color:#546258}
+.table-wrap {overflow-x:auto}
+.stat-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.stat {
+  padding:20px;background:#f5f7f2;border-radius:8px;
+}
+.stat strong {display:block;font-size:27px;color:var(--green)}
+.stat span {font-size:12px;color:var(--muted)}
+.small-button {
+  border:0;border-radius:4px;padding:7px 10px;
+  background:#e8eee8;color:var(--green);font-weight:700;
+}
+.message {font-size:13px;margin-top:12px;line-height:1.6}
+.success-text {color:#24733b}
+.error-text {color:#b43d37}
+@media(max-width:850px) {
+  .bungalow-grid {grid-template-columns:repeat(2,1fr)}
+  .search-panel {grid-template-columns:1fr 1fr}
+  .search-button {grid-column:1/-1}
+}
+@media(max-width:580px) {
+  header {padding:13px 5%}
+  nav a {display:none}
+  .brand h2 {font-size:13px}
+  .hero {min-height:390px;padding:45px 6%}
+  .bungalow-grid {grid-template-columns:1fr}
+  .search-panel {grid-template-columns:1fr}
+  .form-grid {grid-template-columns:1fr}
+  .full {grid-column:auto}
+  .stat-grid {grid-template-columns:1fr}
+  .section {padding:45px 0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">✦</div>
+    <div>
+      <h2>SRI LANKA SIGNAL CORPS</h2>
+      <small>HOLIDAY BUNGALOW MANAGEMENT</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#bungalows">Bungalows</a>
+    <a href="#contact">Contact</a>
+    <button onclick="openLogin()">EDITOR LOGIN</button>
+  </nav>
+</header>
+
+<main id="publicPage">
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="eyebrow">SRI LANKA SIGNAL CORPS</div>
+      <h1>Relax, Explore & Experience Sri Lanka</h1>
+      <p>
+        Discover our holiday accommodation facilities.
+        Explore bungalow details, accommodation options,
+        prices and booking availability in one place.
+      </p>
+      <a href="#bungalows" class="gold-button">EXPLORE BUNGALOWS →</a>
+    </div>
+  </section>
+
+  <section class="section container" id="bungalows">
+    <div class="section-heading">
+      <div class="eyebrow">OUR ACCOMMODATION</div>
+      <h2>Holiday Bungalows</h2>
+      <p>Explore our accommodation facilities and check availability
+      for your preferred dates.</p>
+    </div>
+
+    <div class="search-panel">
+      <div class="field">
+        <label>Arrival date</label>
+        <input type="date" id="arrival">
+      </div>
+      <div class="field">
+        <label>Departure date</label>
+        <input type="date" id="departure">
+      </div>
+      <div class="field">
+        <label>Location</label>
+        <select id="locationFilter">
+          <option value="">All locations</option>
+          <option>Diyathalawa</option>
+          <option>Kandy</option>
+          <option>Anuradhapura</option>
+          <option>Kilinochchi</option>
+          <option>Minneriya</option>
+          <option>Padukka</option>
+        </select>
+      </div>
+      <button class="search-button" onclick="renderBungalows()">CHECK AVAILABILITY</button>
+    </div>
+
+    <div id="bungalowGrid" class="bungalow-grid">
+      <p>Loading bungalow information...</p>
+    </div>
+
+    <div class="notice">
+      <strong>Important:</strong> Availability shown here is based on
+      information maintained by the authorized editor. Please contact
+      the official booking office for reservation confirmation.
+      Public visitors cannot view private officer or civilian booking details.
+    </div>
+  </section>
+</main>
+
+<!-- EDITOR LOGIN -->
+<div class="modal hidden" id="loginModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeLogin()">✕</button>
+    <h2>Editor Login</h2>
+    <p>Authorized personnel only.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label>Email address</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+      <br>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="loginPassword" required>
+      </div>
+      <div class="form-actions">
+        <button class="primary" type="submit">LOGIN</button>
+        <button class="secondary" type="button" onclick="closeLogin()">CANCEL</button>
+      </div>
+      <p id="loginMessage" class="message"></p>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<main id="adminPage" class="hidden">
+  <section class="admin-area container">
+    <div class="admin-header">
+      <div>
+        <div class="eyebrow">MANAGEMENT SYSTEM</div>
+        <h2>Editor Dashboard</h2>
+        <small id="editorEmail"></small>
+      </div>
+      <button class="secondary" onclick="logout()">LOG OUT</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="active" onclick="showTab('overview',this)">Overview</button>
+      <button onclick="showTab('properties',this)">Bungalows</button>
+      <button onclick="showTab('bookings',this)">Bookings</button>
+      <button onclick="showTab('newBooking',this)">Add Booking</button>
+    </div>
+
+    <div id="overviewTab" class="admin-tab">
+      <div class="admin-panel">
+        <h3>Booking Overview</h3>
+        <div class="stat-grid">
+          <div class="stat"><strong id="totalBungalows">0</strong><span>Bungalows / Units</span></div>
+          <div class="stat"><strong id="totalBookings">0</strong><span>Booking Records</span></div>
+          <div class="stat"><strong id="totalAvailable">0</strong><span>Available Units</span></div>
+        </div>
+      </div>
+      <div class="admin-panel">
+        <h3>Management Information</h3>
+        <p>Use the Bungalows section to add properties and update prices.</p>
+        <p>Use Bookings to review and edit reservation records.</p>
+        <p>Use Add Booking to enter officer and civilian reservation details.</p>
+      </div>
+    </div>
+
+    <div id="propertiesTab" class="admin-tab hidden">
+      <div class="admin-panel">
+        <h3>Add a Bungalow / Accommodation Unit</h3>
+        <form id="bungalowForm" class="form-grid">
+          <div class="field">
+            <label>Property name</label>
+            <input id="propertyName" required placeholder="e.g. New Bungalow">
+          </div>
+          <div class="field">
+            <label>Location</label>
+            <input id="propertyLocation" required placeholder="e.g. Kandy">
+          </div>
+          <div class="field">
+            <label>Accommodation type</label>
+            <input id="propertyType" placeholder="e.g. AC Rooms">
+          </div>
+          <div class="field">
+            <label>Number of rooms / beds</label>
+            <input id="propertyRooms" type="number" min="0" value="3">
+          </div>
+          <div class="field">
+            <label>Category 1 price (Rs.)</label>
+            <input id="priceOne" type="number" min="0" required>
+          </div>
+          <div class="field">
+            <label>Category 2 price (Rs.)</label>
+            <input id="priceTwo" type="number" min="0" required>
+          </div>
+          <div class="field">
+            <label>Category 3 price (Rs.)</label>
+            <input id="priceThree" type="number" min="0" required>
+          </div>
+          <div class="field">
+            <label>Image URL (optional)</label>
+            <input id="propertyImage" type="url">
+          </div>
+          <div class="field full">
+            <label>Description</label>
+            <textarea id="propertyDescription" rows="3"></textarea>
+          </div>
+          <div class="full">
+            <button class="primary" type="submit">ADD BUNGALOW</button>
+            <p id="propertyMessage" class="message"></p>
+          </div>
+        </form>
+      </div>
+      <div class="admin-panel">
+        <h3>Existing Bungalows</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Name</th><th>Location</th><th>Category 1</th><th>Category 2</th><th>Category 3</th><th>Action</th></tr></thead>
+            <tbody id="propertyTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="bookingsTab" class="admin-tab hidden">
+      <div class="admin-panel">
+        <h3>Booking Records</h3>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Guest</th><th>Category</th><th>Bungalow</th><th>Arrival</th><th>Departure</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="bookingTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="newBookingTab" class="admin-tab hidden">
+      <div class="admin-panel">
+        <h3 id="bookingFormTitle">Enter Booking Details</h3>
+        <form id="bookingForm" class="form-grid">
+          <input type="hidden" id="editBookingId">
+          <input type="hidden" id="editAvailabilityId">
+
+          <div class="field full">
+            <label>Select bungalow / accommodation</label>
+            <select id="bookingBungalow" required></select>
+          </div>
+          <div class="field">
+            <label>Booking category</label>
+            <select id="bookingCategory" required>
+              <option value="SLSC">SLSC Serving / Retired</option>
+              <option value="OTHER_ARMY">Other Regiments Serving / Retired</option>
+              <option value="CIVILIAN">Civilian Guest</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Guest name</label>
+            <input id="guestName" required>
+          </div>
+          <div class="field">
+            <label>Rank / Designation</label>
+            <input id="guestRank">
+          </div>
+          <div class="field">
+            <label>Service / Reference number</label>
+            <input id="guestServiceNo">
+          </div>
+          <div class="field">
+            <label>Contact number</label>
+            <input id="guestContact" type="tel">
+          </div>
+          <div class="field">
+            <label>Number of guests</label>
+            <input id="guestCount" type="number" min="1" value="2">
+          </div>
+          <div class="field">
+            <label>Arrival date</label>
+            <input id="bookingArrival" type="date" required>
+          </div>
+          <div class="field">
+            <label>Departure date</label>
+            <input id="bookingDeparture" type="date" required>
+          </div>
+          <div class="field">
+            <label>Booking status</label>
+            <select id="bookingStatus">
+              <option value="confirmed">Confirmed</option>
+              <option value="pending">Pending</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label>Remarks</label>
+            <textarea id="bookingRemarks" rows="3"></textarea>
+          </div>
+          <div class="full form-actions">
+            <button class="primary" type="submit">SAVE BOOKING</button>
+            <button class="secondary" type="button" onclick="resetBookingForm()">CLEAR</button>
+          </div>
+          <p id="bookingMessage" class="message full"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <h3>SRI LANKA SIGNAL CORPS</h3>
+    <p>Holiday Bungalow Management System</p>
+    <p>For official reservation inquiries, please contact the Regimental Adjutant.</p>
+    <p>Official information: <a href="https://alt.army.lk/signaller/holiday-bungalows" target="_blank" rel="noopener">Sri Lanka Signal Corps Website</a></p>
+    <p>© 2026 Sri Lanka Signal Corps Holiday Bungalow Management</p>
+  </div>
+</footer>
+
+<script type="module">
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+import {
+  getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+import {
+  getFirestore, collection, doc, getDocs, getDoc,
+  addDoc, updateDoc, deleteDoc, setDoc, query, where
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+/* ======================================
+   1. ADD YOUR FIREBASE CONFIGURATION
+====================================== */
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.firebasestorage.app",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+/* ======================================
+   2. INITIAL BUNGALOW INFORMATION
+   Publicly published reference rates.
+====================================== */
+
+const sampleBungalows = [
+ {
+  id:"mercury-ground",
+  name:"Mercury House - Ground Floor Dormitory",
+  location:"Diyathalawa", type:"Non AC Dormitory",
+  rooms:20, prices:{SLSC:5000,OTHER_ARMY:10000,CIVILIAN:15000},
+  description:"Ground floor dormitory accommodation."
+ },
+ {
+  id:"mercury-first",
+  name:"Mercury House - First Floor",
+  location:"Diyathalawa",type:"2 AC and 1 Non AC Rooms",
+  rooms:3,prices:{SLSC:3000,OTHER_ARMY:6000,CIVILIAN:15000},
+  description:"Three bedroom accommodation."
+ },
+ {
+  id:"mercury-suite",
+  name:"Mercury House - Third Floor Suite",
+  location:"Diyathalawa",type:"AC Suite",
+  rooms:1,prices:{SLSC:5000,OTHER_ARMY:10000,CIVILIAN:20000},
+  description:"Super luxury suite. Eligibility restrictions apply."
+ },
+ {
+  id:"kandy-knuckles",
+  name:"Holiday Bungalow - Knuckles View",
+  location:"Kandy",type:"AC Rooms",
+  rooms:3,prices:{SLSC:3000,OTHER_ARMY:6000,CIVILIAN:8000},
+  description:"Bungalow in the School of Signals premises."
+ },
+ {
+  id:"kandy-breezy",
+  name:"Breezy Cottage",
+  location:"Kandy",type:"AC Room",
+  rooms:1,prices:{SLSC:2000,OTHER_ARMY:4000,CIVILIAN:7500},
+  description:"Accommodation with rank eligibility restrictions."
+ },
+ {
+  id:"anu-new",
+  name:"Anuradhapura - New Bungalow",
+  location:"Anuradhapura",type:"3 AC Rooms",
+  rooms:3,prices:{SLSC:3000,OTHER_ARMY:6000,CIVILIAN:12000},
+  description:"New bungalow accommodation."
+ },
+ {
+  id:"anu-old",
+  name:"Anuradhapura - Old Bungalow",
+  location:"Anuradhapura",type:"2 AC and 1 Non AC Rooms",
+  rooms:3,prices:{SLSC:2000,OTHER_ARMY:4000,CIVILIAN:8000},
+  description:"Old bungalow accommodation."
+ },
+ {
+  id:"anu-dormitory",
+  name:"Anuradhapura - Dormitory",
+  location:"Anuradhapura",type:"Non AC Dormitory",
+  rooms:14,prices:{SLSC:2500,OTHER_ARMY:5000,CIVILIAN:8500},
+  description:"Dormitory with 14 beds."
+ },
+ {
+  id:"kilinochchi-officers",
+  name:"Officers' Cabana",
+  location:"Kilinochchi",type:"3 AC Rooms",
+  rooms:3,prices:{SLSC:1500,OTHER_ARMY:2500,CIVILIAN:3500},
+  description:"Cabana accommodation for eligible guests."
+ },
+ {
+  id:"kilinochchi-ors",
+  name:"ORs' Cabana",
+  location:"Kilinochchi",type:"Non AC Cabana",
+  rooms:3,prices:{SLSC:2000,OTHER_ARMY:3000,CIVILIAN:4000},
+  description:"Non AC cabana accommodation."
+ },
+ {
+  id:"minneriya",
+  name:"Miridiya Pawana",
+  location:"Minneriya",type:"3 Non AC Rooms",
+  rooms:3,prices:{SLSC:5000,OTHER_ARMY:10000,CIVILIAN:25000},
+  description:"Bungalow beside Minneriya Reservoir."
+ },
+ {
+  id:"padukka-pool",
+  name:"Mercury Club House - Pool Site Room",
+  location:"Padukka",type:"AC Room",
+  rooms:1,prices:{SLSC:1500,OTHER_ARMY:2500,CIVILIAN:3000},
+  description:"Pool site accommodation."
+ },
+ {
+  id:"padukka-cabana",
+  name:"Mercury Club House - Cabana",
+  location:"Padukka",type:"AC Cabana",
+  rooms:3,prices:{SLSC:3000,OTHER_ARMY:5000,CIVILIAN:7500},
+  description:"Furnished cabana accommodation."
+ }
+];
+
+let bungalows = [...sampleBungalows];
+let publicAvailability = [];
+let bookings = [];
+let currentEditor = null;
+
+/* ======================================
+   3. BASIC HELPERS
+====================================== */
+
+const $ = id => document.getElementById(id);
+
+function money(value) {
+ return "Rs. " + Number(value || 0).toLocaleString("en-LK");
+}
+
+function escapeHTML(value="") {
+ return String(value).replace(/[&<>"']/g, char => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",
+  '"':"&quot;","'":"&#039;"
+ })[char]);
+}
+
+function validDates(start,end) {
+ return start && end && end > start;
+}
+
+function overlaps(start1,end1,start2,end2) {
+ return start1 < end2 && end1 > start2;
+}
+
+function showMessage(id,message,type="success") {
+ const el=$(id);
+ el.textContent=message;
+ el.className="message "+(type==="success"?"success-text":"error-text");
+}
+
+/* ======================================
+   4. LOAD FIRESTORE DATA
+====================================== */
+
+async function loadPublicData() {
+ try {
+  const bungalowSnap=await getDocs(collection(db,"bungalows"));
+  if(!bungalowSnap.empty) {
+   bungalows=bungalowSnap.docs.map(d=>({id:d.id,...d.data()}));
+  }
+
+  const availabilitySnap=await getDocs(collection(db,"publicAvailability"));
+  publicAvailability=availabilitySnap.docs.map(d=>({id:d.id,...d.data()}));
+
+ } catch(error) {
+  console.error(error);
+  console.warn("Firebase data unavailable. Showing sample data.");
+ }
+
+ renderBungalows();
+}
+
+async function loadAdminData() {
+ const [bSnap,bookSnap,aSnap]=await Promise.all([
+  getDocs(collection(db,"bungalows")),
+  getDocs(collection(db,"bookings")),
+  getDocs(collection(db,"publicAvailability"))
+ ]);
+
+ bungalows=bSnap.docs.map(d=>({id:d.id,...d.data()}));
+ bookings=bookSnap.docs.map(d=>({id:d.id,...d.data()}));
+ publicAvailability=aSnap.docs.map(d=>({id:d.id,...d.data()}));
+
+ renderBungalows();
+ renderAdmin();
+}
+
+/* ======================================
+   5. VISITOR BUNGALOW CARDS
+====================================== */
+
+function getAvailability(bungalowId,start,end) {
+ if(!validDates(start,end)) return "Select dates";
+
+ const conflicts=publicAvailability.some(a=>
+  a.bungalowId===bungalowId &&
+  a.status==="confirmed" &&
+  overlaps(start,end,a.arrival,a.departure)
+ );
+
+ return conflicts ? "Booked" : "Available";
+}
+
+window.renderBungalows=function() {
+ const grid=$("bungalowGrid");
+ const start=$("arrival").value;
+ const end=$("departure").value;
+ const location=$("locationFilter").value;
+
+ if(start && end && !validDates(start,end)) {
+  grid.innerHTML="<p>Please select a departure date after arrival.</p>";
+  return;
+ }
+
+ const filtered=bungalows.filter(b=>
+  !location || b.location===location
+ );
+
+ if(!filtered.length) {
+  grid.innerHTML="<p>No bungalow information found.</p>";
+  return;
+ }
+
+ grid.innerHTML=filtered.map(b=>{
+  const status=getAvailability(b.id,start,end);
+  const booked=status==="Booked";
+  const image=b.image || "";
+  const style=image
+   ? `style="background-image:linear-gradient(0deg,#0008,transparent),url('${escapeHTML(image)}')"`
+   : "";
+
+  return `
+  <article class="bungalow-card">
+   <div class="card-image" ${style}>
+    <span>SRI LANKA SIGNAL CORPS</span>
+   </div>
+   <div class="card-body">
+    <span class="status ${booked?"booked":"available"}">
+     ${escapeHTML(status)}
+    </span>
+    <h3>${escapeHTML(b.name)}</h3>
+    <div class="location">📍 ${escapeHTML(b.location)}</div>
+    <div class="card-info">
+     <span>🛏 ${escapeHTML(b.type||"Accommodation")}</span>
+     <span>🏠 ${Number(b.rooms||0)} Rooms/Beds</span>
+    </div>
+    <p style="font-size:13px;color:#778078;line-height:1.6">
+     ${escapeHTML(b.description||"")}
+    </p>
+    <div class="price-line">
+     <div>
+      <small>Category 1 from</small><br>
+      <strong>${money(b.prices?.SLSC)}</strong>
+      <small>/ day</small>
+     </div>
+     <button class="card-button"
+      onclick="showPrice('${b.id}')">VIEW PRICES</button>
+    </div>
+   </div>
+  </article>`;
+ }).join("");
+};
+
+window.showPrice=function(id) {
+ const b=bungalows.find(x=>x.id===id);
+ if(!b) return;
+
+ alert(
+  b.name+"\n\n"+
+  "Category 1 - SLSC: "+money(b.prices?.SLSC)+"\n"+
+  "Category 2 - Other Regiments: "+money(b.prices?.OTHER_ARMY)+"\n"+
+  "Category 3 - Civilian: "+money(b.prices?.CIVILIAN)+"\n\n"+
+  "Rates are reference rates. Please confirm with the booking office."
+ );
+};
+
+/* ======================================
+   6. LOGIN AND EDITOR AUTHORIZATION
+====================================== */
+
+window.openLogin=()=> $("loginModal").classList.remove("hidden");
+window.closeLogin=()=> $("loginModal").classList.add("hidden");
+
+$("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ try {
+  await signInWithEmailAndPassword(
+   auth,$("loginEmail").value,$("loginPassword").value
+  );
+  showMessage("loginMessage","Login successful.");
+ } catch(error) {
+  showMessage("loginMessage",error.message,"error");
+ }
+});
+
+onAuthStateChanged(auth,async user=>{
+ if(!user) {
+  currentEditor=null;
+  $("adminPage").classList.add("hidden");
+  $("publicPage").classList.remove("hidden");
+  return;
+ }
+
+ try {
+  const roleDoc=await getDoc(doc(db,"users",user.uid));
+
+  if(!roleDoc.exists() || roleDoc.data().role!=="editor") {
+   await signOut(auth);
+   alert("You are not authorized to access the editor dashboard.");
+   return;
+  }
+
+  currentEditor=user;
+  $("editorEmail").textContent=user.email;
+  $("publicPage").classList.add("hidden");
+  $("adminPage").classList.remove("hidden");
+  closeLogin();
+  await loadAdminData();
+
+ } catch(error) {
+  console.error(error);
+  alert("Unable to verify editor permissions.");
+  await signOut(auth);
+ }
+});
+
+window.logout=async()=> {
+ await signOut(auth);
+ location.reload();
+};
+
+/* ======================================
+   7. ADMIN TABS
+====================================== */
+
+window.showTab=function(tab,button) {
+ document.querySelectorAll(".admin-tab").forEach(x=>x.classList.add("hidden"));
+ $(tab+"Tab").classList.remove("hidden");
+
+ document.querySelectorAll(".admin-tabs button").forEach(x=>x.classList.remove("active"));
+ button.classList.add("active");
+};
+
+/* ======================================
+   8. BUNGALOW MANAGEMENT
+====================================== */
+
+$("bungalowForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!currentEditor) return;
+
+ try {
+  const data={
+   name:$("propertyName").value.trim(),
+   location:$("propertyLocation").value.trim(),
+   type:$("propertyType").value.trim(),
+   rooms:Number($("propertyRooms").value),
+   prices:{
+    SLSC:Number($("priceOne").value),
+    OTHER_ARMY:Number($("priceTwo").value),
+    CIVILIAN:Number($("priceThree").value)
+   },
+   image:$("propertyImage").value.trim(),
+   description:$("propertyDescription").value.trim(),
+   active:true
+  };
+
+  await addDoc(collection(db,"bungalows"),data);
+  $("bungalowForm").reset();
+  showMessage("propertyMessage","Bungalow added successfully.");
+  await loadAdminData();
+
+ } catch(error) {
+  showMessage("propertyMessage",error.message,"error");
+ }
+});
+
+function renderProperties() {
+ $("propertyTable").innerHTML=bungalows.map(b=>`
+ <tr>
+  <td>${escapeHTML(b.name)}</td>
+  <td>${escapeHTML(b.location)}</td>
+  <td>${money(b.prices?.SLSC)}</td>
+  <td>${money(b.prices?.OTHER_ARMY)}</td>
+  <td>${money(b.prices?.CIVILIAN)}</td>
+  <td><button class="small-button" onclick="deleteBungalow('${b.id}')">Delete</button></td>
+ </tr>`).join("");
+
+ $("bookingBungalow").innerHTML=bungalows.map(b=>
+  `<option value="${b.id}">${escapeHTML(b.name)}</option>`
+ ).join("");
+}
+
+window.deleteBungalow=async id=>{
+ if(!confirm("Delete this bungalow?")) return;
+ try {
+  await deleteDoc(doc(db,"bungalows",id));
+  await loadAdminData();
+ } catch(error) {
+  alert(error.message);
+ }
+};
+
+/* ======================================
+   9. BOOKING MANAGEMENT
+====================================== */
+
+$("bookingForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ if(!currentEditor) return;
+
+ const bungalowId=$("bookingBungalow").value;
+ const arrival=$("bookingArrival").value;
+ const departure=$("bookingDeparture").value;
+ const status=$("bookingStatus").value;
+ const editId=$("editBookingId").value;
+ const availabilityId=$("editAvailabilityId").value;
+
+ if(!validDates(arrival,departure)) {
+  showMessage("bookingMessage","Please enter valid booking dates.","error");
+  return;
+ }
+
+ try {
+  const conflicts=publicAvailability.filter(a=>
+   a.bungalowId===bungalowId &&
+   a.status==="confirmed" &&
+   a.id!==availabilityId &&
+   overlaps(arrival,departure,a.arrival,a.departure)
+  );
+
+  if(status==="confirmed" && conflicts.length) {
+   showMessage("bookingMessage","This bungalow is already booked for the selected dates.","error");
+   return;
+  }
+
+  const data={
+   bungalowId,
+   category:$("bookingCategory").value,
+   guestName:$("guestName").value.trim(),
+   guestRank:$("guestRank").value.trim(),
+   serviceNo:$("guestServiceNo").value.trim(),
+   contact:$("guestContact").value.trim(),
+   guestCount:Number($("guestCount").value),
+   arrival,departure,status,
+   remarks:$("bookingRemarks").value.trim(),
+   updatedAt:new Date().toISOString()
+  };
+
+  let bookingRef;
+
+  if(editId) {
+   bookingRef=doc(db,"bookings",editId);
+   await updateDoc(bookingRef,data);
+  } else {
+   data.createdAt=new Date().toISOString();
+   bookingRef=await addDoc(collection(db,"bookings"),data);
+  }
+
+  const publicData={
+   bungalowId,arrival,departure,status,
+   bookingId:bookingRef.id
+  };
+
+  if(availabilityId) {
+   await updateDoc(doc(db,"publicAvailability",availabilityId),publicData);
+  } else {
+   await addDoc(collection(db,"publicAvailability"),publicData);
+  }
+
+  resetBookingForm();
+  showMessage("bookingMessage","Booking saved successfully.");
+  await loadAdminData();
+
+ } catch(error) {
+  showMessage("bookingMessage",error.message,"error");
+ }
+});
+
+window.editBooking=function(id) {
+ const b=bookings.find(x=>x.id===id);
+ if(!b) return;
+
+ const a=publicAvailability.find(x=>x.bookingId===id);
+
+ $("editBookingId").value=b.id;
+ $("editAvailabilityId").value=a?.id||"";
+ $("bookingBungalow").value=b.bungalowId;
+ $("bookingCategory").value=b.category;
+ $("guestName").value=b.guestName||"";
+ $("guestRank").value=b.guestRank||"";
+ $("guestServiceNo").value=b.serviceNo||"";
+ $("guestContact").value=b.contact||"";
+ $("guestCount").value=b.guestCount||1;
+ $("bookingArrival").value=b.arrival;
+ $("bookingDeparture").value=b.departure;
+ $("bookingStatus").value=b.status;
+ $("bookingRemarks").value=b.remarks||"";
+ $("bookingFormTitle").textContent="Edit Booking Details";
+
+ document.querySelectorAll(".admin-tabs button")[3].click();
+};
+
+window.resetBookingForm=function() {
+ $("bookingForm").reset();
+ $("editBookingId").value="";
+ $("editAvailabilityId").value="";
+ $("bookingFormTitle").textContent="Enter Booking Details";
+};
+
+window.deleteBooking=async id=>{
+ if(!confirm("Delete this booking record?")) return;
+
+ try {
+  const availability=publicAvailability.find(x=>x.bookingId===id);
+  if(availability) {
+   await deleteDoc(doc(db,"publicAvailability",availability.id));
+  }
+  await deleteDoc(doc(db,"bookings",id));
+  await loadAdminData();
+ } catch(error) {
+  alert(error.message);
+ }
+};
+
+/* ======================================
+   10. ADMIN TABLES AND DASHBOARD
+====================================== */
+
+function renderAdmin() {
+ $("totalBungalows").textContent=bungalows.length;
+ $("totalBookings").textContent=bookings.length;
+ $("totalAvailable").textContent=bungalows.length;
+
+ renderProperties();
+
+ $("bookingTable").innerHTML=bookings.map(b=>{
+  const property=bungalows.find(x=>x.id===b.bungalowId);
+  return `
+   <tr>
+    <td>${escapeHTML(b.guestName)}</td>
+    <td>${escapeHTML(b.category)}</td>
+    <td>${escapeHTML(property?.name||"Unknown")}</td>
+    <td>${escapeHTML(b.arrival)}</td>
+    <td>${escapeHTML(b.departure)}</td>
+    <td>${escapeHTML(b.status)}</td>
+    <td>
+     <button class="small-button" onclick="editBooking('${b.id}')">Edit</button>
+     <button class="small-button" onclick="deleteBooking('${b.id}')">Delete</button>
+    </td>
+   </tr>`;
+ }).join("");
+}
+
+/* ======================================
+   11. DATE VALIDATION AND STARTUP
+====================================== */
+
+const today=new Date().toISOString().split("T")[0];
+
+["arrival","departure","bookingArrival","bookingDeparture"].forEach(id=>{
+ $(id).min=today;
+});
+
+$("arrival").addEventListener("change",()=>{
+ $("departure").min=$("arrival").value;
+});
+
+$("bookingArrival").addEventListener("change",()=>{
+ $("bookingDeparture").min=$("bookingArrival").value;
+});
+
+loadPublicData();
+</script>
+
+</body>
+</html>
